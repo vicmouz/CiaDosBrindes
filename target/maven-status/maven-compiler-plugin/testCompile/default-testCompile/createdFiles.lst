@@ -1,0 +1,13 @@
+descorp\jpa\test\TamanhoProdutoCrudTest.class
+descorp\jpa\test\CartaoCreditoCrudTest.class
+descorp\jpa\test\EnderecoClienteCrudTest.class
+descorp\jpa\test\CorProdutoCrudTest.class
+descorp\jpa\test\PedidoCrudTest.class
+descorp\jpa\test\TipoProdutoCrudTest.class
+descorp\jpa\test\DbUnitUtil.class
+descorp\jpa\test\ImagemProdutoCrudTest.class
+descorp\jpa\test\ClienteUsuarioCrudTest.class
+descorp\jpa\test\GenericTest.class
+descorp\jpa\test\JpqlTest.class
+descorp\jpa\test\AdministradorCrudTest.class
+descorp\jpa\test\ProdutoCrudTest.class
