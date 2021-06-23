@@ -113,7 +113,7 @@ public class EnderecoCliente extends Entidade implements Serializable{
  
  @NotNull
  @Size(max = 2)
- //@ValidaPais
+ @ValidaPais
  @Column(name="ENDERECO_PAIS")
  private String pais;
 

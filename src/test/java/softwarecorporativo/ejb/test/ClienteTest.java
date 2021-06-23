@@ -119,7 +119,7 @@ public class ClienteTest extends Teste{
         cliente = clienteservico.consultarPorId(new Long(4));
         assertEquals("BR", ec.getPais());
     }
-   /* 
+   
     @Test(expected = EJBException.class)
     public void atualizarPaisInvalido() {
         ClienteUsuario cliente = clienteservico.consultarPorId(new Long(4));
@@ -137,7 +137,7 @@ public class ClienteTest extends Teste{
         cliente = clienteservico.consultarPorId(new Long(4));
         assertEquals("BR", ec.getPais());
     }
-    */
+   
     @Test(expected = EJBException.class)
     public void atualizarCPFInvalido() {
         ClienteUsuario cliente = clienteservico.consultarPorId(new Long(4));

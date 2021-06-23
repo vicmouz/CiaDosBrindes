@@ -50,7 +50,7 @@ import org.hibernate.validator.constraints.NotBlank;
             ),
             @NamedQuery(
                     name = Administrador.ADMINISTRADORES,
-                    query = "SELECT a FROM UsuarioGeral a WHERE a."
+                    query = "SELECT a FROM UsuarioGeral a"
             )
         }
 )

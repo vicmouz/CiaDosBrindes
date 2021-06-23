@@ -58,7 +58,7 @@ import javax.validation.constraints.Size;
             ),
             @NamedQuery(
                     name = ClienteUsuario.CLIENTES,
-                    query = "SELECT a FROM UsuarioGeral a WHERE a."
+                    query = "SELECT a FROM UsuarioGeral a "
             )
              
         }
