@@ -30,7 +30,7 @@ public class DbUnitUtil {
         IDatabaseConnection db_conn = null;
         try {
             conn = DriverManager.getConnection(
-                    "jdbc:derby://localhost:1527/lojaVirtual", "app", "app");
+                    "jdbc:derby://localhost:1527/ciadosbrindes", "root", "root");
             db_conn = new DatabaseConnection(conn);
             DatabaseConfig dbConfig = db_conn.getConfig();
             dbConfig.setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY, new PostgresqlDataTypeFactory());
