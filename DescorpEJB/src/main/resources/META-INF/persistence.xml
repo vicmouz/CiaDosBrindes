@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="ciadosbrindes" transaction-type="JTA">
-    <jta-data-source>jdbc_ciadosbrindes</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>jdbc/ciadosbrindes</jta-data-source>
+    <class>softwarecorporativo.entidade.TipoProduto</class>
+    <class>softwarecorporativo.entidade.CorProduto</class>
+    <class>softwarecorporativo.entidade.ClienteUsuario</class>
+    <class>softwarecorporativo.entidade.CartaoCredito</class>
+    <class>softwarecorporativo.entidade.Produto</class>
+    <class>softwarecorporativo.entidade.Administrador</class>
+    <class>softwarecorporativo.entidade.UsuarioGeral</class>
+    <class>softwarecorporativo.entidade.Pedido</class>
+    <class>softwarecorporativo.entidade.TamanhoProduto</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/ciadosbrindes;create=true"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="root"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.validation.group.pre-persist" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-update" value="javax.validation.groups.Default"/>
+      <property name="javax.persistence.validation.group.pre-remove" value="javax.validation.groups.Default"/>
     </properties>
   </persistence-unit>
 </persistence>
