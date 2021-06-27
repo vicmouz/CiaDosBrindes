@@ -25,33 +25,35 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author marcosbrasil98
  */
 @Entity
-@Table(name="TB_CORPRODUTO")
+@Table(name = "TB_CORPRODUTO")
 @Access(AccessType.FIELD)
 @NamedQueries(
         {
             @NamedQuery(
                     name = "CorProduto.PorNome",
                     query = "SELECT c FROM CorProduto c WHERE c.nome LIKE :nome ORDER BY c.tipo"),
-            
+
             @NamedQuery(
                     name = "CorProduto.PorTipo",
                     query = "SELECT c FROM CorProduto c WHERE c.tipo LIKE :tipo ORDER BY c.id")
-                        }
+        }
 )
-public class CorProduto implements Serializable{
+public class CorProduto extends Entidade implements Serializable {
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-@Column(name="CORPRODUTO_ID")
-private Long id;
+    public static final String CorPorTipo = "CorPorTipo";
 
-@NotBlank(message = "Nome é obrigatório")
-@Size(min = 1,max = 20)
-@Column(name = "CORPRODUTO_NOME")
-private String nome;
-@NotNull(message = "Tipo não pode ser null")
-@Column(name = "CORPRODUTO_TIPO")
-private String tipo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CORPRODUTO_ID")
+    private Long id;
+
+    @NotBlank(message = "Nome é obrigatório")
+    @Size(min = 1, max = 20)
+    @Column(name = "CORPRODUTO_NOME")
+    private String nome;
+    @NotNull(message = "Tipo não pode ser null")
+    @Column(name = "CORPRODUTO_TIPO")
+    private String tipo;
 
     public String getTipo() {
         return tipo;
@@ -60,8 +62,6 @@ private String tipo;
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-
 
     public Long getId() {
         return id;

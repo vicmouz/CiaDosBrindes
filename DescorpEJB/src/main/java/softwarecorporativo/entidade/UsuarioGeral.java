@@ -19,8 +19,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import static javax.persistence.DiscriminatorType.STRING;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -33,38 +31,40 @@ import org.hibernate.validator.constraints.br.CPF;
  */
 @Entity
 @Table (name="TB_USUARIOGERAL")
-@Inheritance(strategy = InheritanceType.JOINED)
 @Access(AccessType.FIELD)
-@DiscriminatorColumn(name = "USUARIO_TIPO",discriminatorType = STRING, length = 1)
 
-public abstract class UsuarioGeral implements Serializable {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "USUARIO_TIPO",discriminatorType = STRING, length = 1)
+public abstract class UsuarioGeral extends Entidade implements Serializable {
 
 @Id
 @GeneratedValue (strategy = GenerationType.IDENTITY)
 @Column (name="USUARIO_ID")
 private Long id;
 
-
+@NotBlank(message = "Nome do usuário não pode ser null")
 @Size(max=40)
 @Column (name="USUARIO_NOME", length=40)
 private String nome;
 
+@NotBlank(message = "Email do usuário não pode ser null")
+@Size(max=40)
+@Email
+@Column(name="USUARIO_EMAIL",length=40)
+private String email;
 
- @NotNull
- @Email
- @Column(name = "USUARIO_EMAIL", length = 30, nullable = false)
- protected String email;
-
-@NotNull
+@NotBlank(message = "CPF não pode ser null")
 @CPF
+@Size(max=30)
 @Column(name="USUARIO_CPF")
-protected String cpf;
+private String cpf;
 
-    
+
     public boolean possui(String nome){
         return nome.contains(nome);
     }
 
+    
     public Long getId() {
         return id;
     }
@@ -99,23 +99,20 @@ protected String cpf;
         this.cpf = cpf;
     }
 
-    
-  @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof UsuarioGeral)) {
-            return false;
-        }
-        UsuarioGeral other = (UsuarioGeral) object;
-
-        return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.id);
+        sb.append(", ");
+        sb.append(this.nome);
+        sb.append(", ");
+        sb.append(this.email);
+        sb.append(", ");
+        sb.append(this.cpf);
+        
+        return sb.toString();
     }
+  
 
 
    

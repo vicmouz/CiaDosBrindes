@@ -9,15 +9,15 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-
-
 /**
  *
  * @author marcosbrasil98
  */
 @Embeddable
-public class ImagemProduto implements Serializable{
-   
+public class ImagemProduto extends Entidade implements Serializable {
+
+    public static final String ImagemProdutoPorOutraCor = "ImagemProdutoPorOutraCor";
+
     @Column(name = "IMAGEM_URL")
     private String imageProduto;
 
@@ -28,5 +28,5 @@ public class ImagemProduto implements Serializable{
     public void setImageProduto(String imageProduto) {
         this.imageProduto = imageProduto;
     }
-    
-  }
+
+}

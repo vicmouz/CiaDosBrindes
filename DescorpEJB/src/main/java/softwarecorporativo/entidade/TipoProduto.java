@@ -35,7 +35,7 @@ import javax.validation.constraints.Size;
         }
 )
 
-public class TipoProduto implements Serializable {
+public class TipoProduto extends Entidade implements Serializable {
 
     public static final String TipoProdutoPorNome = "TipoProdutoPorNome";
 

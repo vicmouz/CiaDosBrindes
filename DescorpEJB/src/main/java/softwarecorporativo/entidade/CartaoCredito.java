@@ -46,7 +46,7 @@ import javax.validation.constraints.Size;
            
                         }
 )
-public class CartaoCredito implements Serializable {
+public class CartaoCredito extends Entidade implements Serializable {
 
     @Id
     @Column(name = "ID_CARTAO_CREDITO")

@@ -3,16 +3,7 @@
   <persistence-unit name="ciadosbrindes" transaction-type="JTA">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <jta-data-source>jdbc/ciadosbrindes</jta-data-source>
-    <class>softwarecorporativo.entidade.TipoProduto</class>
-    <class>softwarecorporativo.entidade.CorProduto</class>
-    <class>softwarecorporativo.entidade.ClienteUsuario</class>
-    <class>softwarecorporativo.entidade.CartaoCredito</class>
-    <class>softwarecorporativo.entidade.Produto</class>
-    <class>softwarecorporativo.entidade.Administrador</class>
-    <class>softwarecorporativo.entidade.UsuarioGeral</class>
-    <class>softwarecorporativo.entidade.Pedido</class>
-    <class>softwarecorporativo.entidade.TamanhoProduto</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/ciadosbrindes;create=true"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

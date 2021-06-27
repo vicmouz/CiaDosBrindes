@@ -61,6 +61,7 @@ import org.hibernate.validator.constraints.NotBlank;
         }
 )
 public class ClienteUsuario extends UsuarioGeral implements Serializable {
+public static final String Clienteporcpf = "Clienteporcpf";
 
 
 @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)

@@ -59,7 +59,9 @@ import javax.validation.Valid;
             )
         }
 )
-public class Produto implements Serializable {
+public class Produto extends Entidade implements Serializable {
+
+    public static final String ProdutoPorID = "ProdutoPorID";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,14 +78,14 @@ public class Produto implements Serializable {
     @Column(name = "PRODUTO_DESCRICAO")
     private String descricao;
 
-    @NotNull (message = "Quantidade é obrigatório")
+    @NotNull(message = "Quantidade é obrigatório")
     @Column(name = "PRODUTO_QUANTIDADE")
     private Integer quantidade;
 
     @NotNull(message = "Preço é obrigatório")
     @Column(name = "PRODUTO_PRECO")
     private double preco;
- 
+
     @Valid
     @Embedded
     private ImagemProduto imgProduto;

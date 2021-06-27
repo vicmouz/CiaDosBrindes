@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package softwarecorporativo.entidade;
+
 import softwarecorporativo.validador.ValidaPais;
 import java.io.Serializable;
 
@@ -19,53 +20,53 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author marcosbrasileiro
  */
 @Embeddable
-public class EnderecoCliente implements Serializable{
-        
- @NotNull(message = "Nome da rua é obrigatório")
- @Size(max=100)
- @Column(name="ENDERECO_NOME")
- private String nome;
- 
- @NotBlank(message = "Número é obrigatório")
- @Size(max = 10)
- @Column(name="ENDERECO_NUMERO")
- private String numero;
- 
- 
- @Size(max = 200)
- @Column(name="ENDERECO_COMPLEMENTO")
-  private String complemento;
- 
- @NotBlank(message = "Bairro é obrigatório")
- @Size(max=20)
- @Column(name="ENDERECO_BAIRRO")
- private String bairro;
- 
- @NotBlank(message = "Cidade é obrigatório")
- @Size(max=40)
- @Column(name="ENDERECO_CIDADE")
- private String cidade;
- 
- @NotBlank(message = "CEP é obrigatório")
- @Size(max=20)
- @Column(name="ENDERECO_CEP")
- protected String cep;
- 
- @NotNull(message = "Estado é obrigatório")
- @Size(max = 30)
- @Column(name="ENDERECO_ESTADO")
- protected String estado;
- 
- @NotNull(message = "País é obrigatório")
- @ValidaPais(message = "País inválido")
- @Size(max = 2)
- @Column(name="ENDERECO_PAIS")
- protected String pais;
+public class EnderecoCliente extends Entidade implements Serializable {
 
-public boolean possui(String nome){
-       return nome.contains(nome);
-   }
+    public static final String EnderecoPorCep = "EnderecoPorCep";
 
+    @NotNull(message = "Nome da rua é obrigatório")
+    @Size(max = 100)
+    @Column(name = "ENDERECO_NOME")
+    private String nome;
+
+    @NotBlank(message = "Número é obrigatório")
+    @Size(max = 10)
+    @Column(name = "ENDERECO_NUMERO")
+    private String numero;
+
+    @Size(max = 200)
+    @Column(name = "ENDERECO_COMPLEMENTO")
+    private String complemento;
+
+    @NotBlank(message = "Bairro é obrigatório")
+    @Size(max = 20)
+    @Column(name = "ENDERECO_BAIRRO")
+    private String bairro;
+
+    @NotBlank(message = "Cidade é obrigatório")
+    @Size(max = 40)
+    @Column(name = "ENDERECO_CIDADE")
+    private String cidade;
+
+    @NotBlank(message = "CEP é obrigatório")
+    @Size(max = 20)
+    @Column(name = "ENDERECO_CEP")
+    protected String cep;
+
+    @NotNull(message = "Estado é obrigatório")
+    @Size(max = 30)
+    @Column(name = "ENDERECO_ESTADO")
+    protected String estado;
+
+    @NotNull(message = "País é obrigatório")
+    @ValidaPais(message = "País inválido")
+    @Size(max = 2)
+    @Column(name = "ENDERECO_PAIS")
+    protected String pais;
+
+    public boolean possui(String nome) {
+        return nome.contains(nome);
+    }
 
     public String getNome() {
         return nome;
@@ -75,7 +76,6 @@ public boolean possui(String nome){
         this.nome = nome;
     }
 
- 
     public String getNumero() {
         return numero;
     }
@@ -135,7 +135,5 @@ public boolean possui(String nome){
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
- 
-
 
 }

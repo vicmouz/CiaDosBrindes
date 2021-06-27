@@ -25,7 +25,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @author marcosbrasil98
  */
 @Entity
-@Table(name="TB_TAMANHOPRODUTO")
+@Table(name = "TB_TAMANHOPRODUTO")
 @Access(AccessType.FIELD)
 @NamedQueries(
         {
@@ -35,46 +35,40 @@ import org.hibernate.validator.constraints.NotEmpty;
             @NamedQuery(
                     name = "TamanhoProduto.PorTipo",
                     query = "SELECT t FROM TamanhoProduto t WHERE t.tipo LIKE :tipo ORDER BY t.id")
-           
-                        }
+
+        }
 )
-public class TamanhoProduto implements Serializable{
- 
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- @Column(name="TAMANHOPRODUTO_ID")
- private Long id;
- 
- @NotNull(message = "Nome é obrigatório")
- @Column(name="TAMANHOPRODUTO_NOME")
- private String nome;
- 
- @NotNull(message = "Altura é obrigatório")
- @Column(name="TAMANHOPRODUTO_ALTURA")
- private double altura;
- @NotNull(message = "Comprimento é obrigatório")
- @Column(name="TAMANHOPRODUTO_COMPRIMENTO")
- private double comprimento;
- @NotNull(message = "Largura é obrigatório")
- @Column(name="TAMANHOPRODUTO_LARGURA")
- private double largura;
- @NotNull(message = "Tipo é obrigatório")
- @Size(max = 50,min = 1)
- @Column(name="TAMANHOPRODUTO_TIPO")
- private String tipo;
- 
+public class TamanhoProduto extends Entidade implements Serializable {
 
+    public static final String TamanhoProdutoPorTipo = "TamanhoProdutoPorTipo";
 
-   
- 
- 
- 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TAMANHOPRODUTO_ID")
+    private Long id;
 
-   public boolean possui(String nome){
-       return nome.contains(nome);
-   }
+    @NotNull(message = "Nome é obrigatório")
+    @Column(name = "TAMANHOPRODUTO_NOME")
+    private String nome;
 
- 
+    @NotNull(message = "Altura é obrigatório")
+    @Column(name = "TAMANHOPRODUTO_ALTURA")
+    private double altura;
+    @NotNull(message = "Comprimento é obrigatório")
+    @Column(name = "TAMANHOPRODUTO_COMPRIMENTO")
+    private double comprimento;
+    @NotNull(message = "Largura é obrigatório")
+    @Column(name = "TAMANHOPRODUTO_LARGURA")
+    private double largura;
+    @NotNull(message = "Tipo é obrigatório")
+    @Size(max = 50, min = 1)
+    @Column(name = "TAMANHOPRODUTO_TIPO")
+    private String tipo;
+
+    public boolean possui(String nome) {
+        return nome.contains(nome);
+    }
+
     public Long getId() {
         return id;
     }

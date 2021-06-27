@@ -5,7 +5,6 @@
  */
 package softwarecorporativo.entidade;
 
-
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Access;
@@ -28,54 +27,58 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.Valid;
+
 /**
  *
  * @author marcosbrasil98
  */
 @Entity
-@Table(name="TB_PEDIDO")
+@Table(name = "TB_PEDIDO")
 @Access(AccessType.FIELD)
 @NamedQueries(
         {
             @NamedQuery(
                     name = "Pedido.PorLog",
                     query = "SELECT p FROM Pedido p WHERE p.log LIKE :log ORDER BY p.id")
-            
-            
-                        }
+
+        }
 )
-public class Pedido implements Serializable{
+public class Pedido extends Entidade implements Serializable {
 
-@Id
-@GeneratedValue(strategy =GenerationType.IDENTITY )
-@Column(name = "PEDIDO_ID",nullable = false)
-private Long id;
+    public static final String PedidoPorLog = "PedidoPorLog";
 
-@NotNull(message = "Log é obrigatório")
-@Size(max=20, min = 1)
-@Column(name = "PEDIDO_LOG")
-private String log;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PEDIDO_ID", nullable = false)
+    private Long id;
 
-@NotNull(message = "Quantidade é obrigatório")
-@Column(name = "PEDIDO_QUANTIDADE")
-private Integer quantidade; 
+    @NotNull(message = "Log é obrigatório")
+    @Size(max = 20, min = 1)
+    @Column(name = "PEDIDO_LOG")
+    private String log;
 
-@NotNull(message = "Status é obrigatório")
-@Enumerated(EnumType.STRING) //Use EnumType.ORDINAL para armazenar a enumeração como inteiro.
-  @Column(name = "PEDIDO_STATUS", nullable = false, length = 20)
+    @NotNull(message = "Quantidade é obrigatório")
+    @Column(name = "PEDIDO_QUANTIDADE")
+    private Integer quantidade;
+
+    @NotNull(message = "Status é obrigatório")
+    @Enumerated(EnumType.STRING) //Use EnumType.ORDINAL para armazenar a enumeração como inteiro.
+    @Column(name = "PEDIDO_STATUS", nullable = false, length = 20)
     private StatusPedido status;
 
-@Valid
-@ManyToOne(fetch = FetchType.LAZY,optional = false)
-@JoinColumn(name = "CLIENTE_FK",referencedColumnName = "USUARIO_ID",nullable = false)
-  private ClienteUsuario clienteusuario;
+    @Valid
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "CLIENTE_FK", referencedColumnName = "USUARIO_ID", nullable = false)
+    private ClienteUsuario clienteusuario;
 
-@Valid
-@ManyToMany
-    @JoinTable(name="TB_PEDIDO_PRODUTO", joinColumns=
-    {@JoinColumn(name="PEDIDO_ID")}, inverseJoinColumns=
-      {@JoinColumn(name="PRODUTO_ID")})
-   private List<Produto> produto;
+    @Valid
+    @ManyToMany
+    @JoinTable(name = "TB_PEDIDO_PRODUTO", joinColumns
+            = {
+                @JoinColumn(name = "PEDIDO_ID")}, inverseJoinColumns
+            = {
+                @JoinColumn(name = "PRODUTO_ID")})
+    private List<Produto> produto;
 
     public StatusPedido getStatus() {
         return status;
@@ -93,15 +96,14 @@ private Integer quantidade;
         this.clienteusuario = Clienteusuario;
     }
 
-public List <Produto> criarProduto(List<Produto> produto) {
+    public List<Produto> criarProduto(List<Produto> produto) {
         this.setProduto(produto);
         return getProduto();
     }
 
-public boolean possui(String log){
-       return log.contains(log);
-   }
-
+    public boolean possui(String log) {
+        return log.contains(log);
+    }
 
     public Long getId() {
         return id;

@@ -38,7 +38,7 @@ public class ImagemServico extends Servico<ImagemProduto>{
     @Override
     public boolean existe(@NotNull ImagemProduto imagem) {
         TypedQuery<ImagemProduto> query = entityManager.createNamedQuery(ImagemProduto.ImagemProdutoPorOutraCor, ImagemProduto.class);
-        query.setParameter(1, imagem.getOutraCor());
+        query.setParameter(1, imagem.getImageProduto());
         return !query.getResultList().isEmpty();
     }
     
