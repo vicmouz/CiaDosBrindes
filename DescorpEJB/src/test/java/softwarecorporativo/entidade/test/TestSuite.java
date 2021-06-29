@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({AdministradorCrudTest.class, ClienteUsuarioCrudTest.class, CorProdutoCrudTest.class,
-EnderecoClienteCrudTest.class, ImagemProdutoCrudTest.class, PedidoCrudTest.class, ProdutoCrudTest.class,
+ ImagemProdutoCrudTest.class, PedidoCrudTest.class, ProdutoCrudTest.class,
 TamanhoProdutoCrudTest.class, TipoProdutoCrudTest.class})
 public class TestSuite {
 

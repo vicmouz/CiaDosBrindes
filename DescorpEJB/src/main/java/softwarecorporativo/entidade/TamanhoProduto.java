@@ -33,8 +33,8 @@ import org.hibernate.validator.constraints.NotEmpty;
                     name = "TamanhoProduto.PorNome",
                     query = "SELECT t FROM  TamanhoProduto t WHERE t.nome LIKE :nome ORDER BY t.id"),
             @NamedQuery(
-                    name = "TamanhoProduto.PorTipo",
-                    query = "SELECT t FROM TamanhoProduto t WHERE t.tipo LIKE :tipo ORDER BY t.id")
+                    name = TamanhoProduto.TamanhoProdutoPorTipo,
+                    query = "SELECT tp FROM TamanhoProduto tp WHERE tp.tipo = ?1")
 
         }
 )

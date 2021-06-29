@@ -51,8 +51,8 @@ import org.hibernate.validator.constraints.NotBlank;
                     query = "SELECT cu FROM UsuarioGeral cu WHERE cu.nome LIKE :nome ORDER BY cu.id"
             ),
             @NamedQuery(
-                    name = "ClienteUsuario.PorCpf",
-                    query = "SELECT cu FROM UsuarioGeral cu WHERE cu.cpf LIKE :cpf ORDER BY cu.id"
+                    name = ClienteUsuario.Clienteporcpf,
+                    query = "SELECT a FROM UsuarioGeral a WHERE a.cpf = ?1"
             ),
             @NamedQuery(
                     name = "ClienteUsuario.PorEmail",

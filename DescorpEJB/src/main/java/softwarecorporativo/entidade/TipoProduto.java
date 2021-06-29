@@ -29,8 +29,8 @@ import javax.validation.constraints.Size;
 @NamedQueries(
         {
             @NamedQuery(
-                    name = "TipoProduto.PorNome",
-                    query = "SELECT t FROM TipoProduto t WHERE t.nome LIKE :nome ORDER BY t.id")
+                    name = TipoProduto.TipoProdutoPorNome,
+                    query = "SELECT tp FROM TipoProduto tp WHERE tp.nome = ?1")
 
         }
 )

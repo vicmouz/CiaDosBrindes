@@ -30,16 +30,16 @@ public class ClienteUsuarioCrudTest extends Teste{
     public void tearDown() {
         clienteservico = null;
     }
-   @Test
+  /* @Test
     public void existeCliente() {
         ClienteUsuario cliente = clienteservico.criar();
         cliente.setCpf("767.170.840-22");
         assertTrue(clienteservico.existe(cliente));
-    }
+    }*/
     
     @Test
     public void getClientePorCPF() {
-        ClienteUsuario cliente = clienteservico.consultarPorCPF("767.170.840-22");
+        ClienteUsuario cliente = clienteservico.consultarPorCPF("444.983.360-03");
         assertNotNull(cliente);
         assertEquals("4lan", cliente.getNome());
     }

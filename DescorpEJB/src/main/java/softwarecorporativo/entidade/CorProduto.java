@@ -34,8 +34,8 @@ import org.hibernate.validator.constraints.NotBlank;
                     query = "SELECT c FROM CorProduto c WHERE c.nome LIKE :nome ORDER BY c.tipo"),
 
             @NamedQuery(
-                    name = "CorProduto.PorTipo",
-                    query = "SELECT c FROM CorProduto c WHERE c.tipo LIKE :tipo ORDER BY c.id")
+                    name = CorProduto.CorPorTipo,
+                    query = "SELECT c FROM CorProduto c WHERE c.tipo = ?1")
         }
 )
 public class CorProduto extends Entidade implements Serializable {

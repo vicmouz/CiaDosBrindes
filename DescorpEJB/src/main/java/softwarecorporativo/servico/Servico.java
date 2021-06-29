@@ -28,7 +28,7 @@ import softwarecorporativo.entidade.Entidade;
  */
 @TransactionManagement(CONTAINER)
 @TransactionAttribute(REQUIRED)
-public abstract class Servico<T extends Entidade> {
+public abstract class Servico <T extends Entidade> {
 
     @PersistenceContext(name = "ciadosbrindes", type = TRANSACTION)
     protected EntityManager entityManager;
@@ -47,19 +47,24 @@ public abstract class Servico<T extends Entidade> {
         return true;
     }
 
-    public void persistir(@Valid T entidade) {
-        if (!existe(entidade)) {
-            entityManager.persist(entidade);
+    public void persistir(@Valid T entidade) {      
+            entityManager.persist(entidade);       
+    }
+
+    public void atualizar(@Valid T entidade) {
+        if (existe(entidade)) {
+            entityManager.merge(entidade);
+            entityManager.flush();
         }
     }
 
-    public T atualizar(@Valid T entidade) {
+    public void deletar(@Valid T entidade) {
         if (existe(entidade)) {
-            entidade = entityManager.merge(entidade);
+            T ems = entityManager.merge(entidade);
+            entityManager.remove(ems);
             entityManager.flush();
         }
 
-        return entidade;
     }
 
     @TransactionAttribute(SUPPORTS)
@@ -68,14 +73,13 @@ public abstract class Servico<T extends Entidade> {
     }
 
     @TransactionAttribute(SUPPORTS)
-    protected T consultarEntidade(Object[] parametros, String nomeQuery) {
+    protected T consultarEntidade(@NotNull Object[] parametros, String nomeQuery) {
         TypedQuery<T> query = entityManager.createNamedQuery(nomeQuery, classe);
 
         int i = 1;
         for (Object parametro : parametros) {
             query.setParameter(i++, parametro);
         }
-
         return query.getSingleResult();
     }
 
@@ -88,6 +92,12 @@ public abstract class Servico<T extends Entidade> {
             query.setParameter(i++, parametro);
         }
 
+        return query.getResultList();
+    }
+
+    @TransactionAttribute(SUPPORTS)
+    protected List<T> getEntidades(String nomeQuery) {
+        TypedQuery<T> query = entityManager.createNamedQuery(nomeQuery, classe);
         return query.getResultList();
     }
 }
