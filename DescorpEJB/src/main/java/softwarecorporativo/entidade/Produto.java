@@ -21,6 +21,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
@@ -86,6 +87,13 @@ public class Produto extends Entidade implements Serializable {
     @Column(name = "PRODUTO_PRECO")
     private double preco;
 
+    @Column(name = "PRODUTO_PROMOCAO")
+    private boolean promocao;
+    
+    @Column(name = "PRODUTO_PORCENTAGEM")
+    private double porcentagemPromocao;    
+    
+    
     @Valid
     @Embedded
     private ImagemProduto imgProduto;
@@ -95,6 +103,13 @@ public class Produto extends Entidade implements Serializable {
     @JoinColumn(name = "PRODUTO_TIPOPRODUTOFK", referencedColumnName = "TIPOPRODUTO_ID", insertable = true, updatable = true)
     private TipoProduto tipoProduto;
 
+    @Valid
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "LOJA_FK", referencedColumnName = "LOJA_ID", nullable = false)
+    private Loja loja;
+
+    
+    
     @Valid
     @ManyToMany
     @JoinTable(name = "TB_PRODUTO_TAMANHO", joinColumns
@@ -112,6 +127,15 @@ public class Produto extends Entidade implements Serializable {
             = {
                 @JoinColumn(name = "CORPRODUTO_ID")})
     private List<CorProduto> cor;
+    
+    
+    public Loja getLoja() {
+        return loja;
+    }
+
+    public void setLoja(Loja loja) {
+        this.loja = loja;
+    }
 
     public ImagemProduto getImgProduto() {
         return imgProduto;
@@ -133,6 +157,23 @@ public class Produto extends Entidade implements Serializable {
         this.id = id;
     }
 
+    public boolean isPromocao() {
+        return promocao;
+    }
+
+    public void setPromocao(boolean promocao) {
+        this.promocao = promocao;
+    }
+
+    public double getPorcentagemPromocao() {
+        return porcentagemPromocao;
+    }
+
+    public void setPorcentagemPromocao(double porcentagemPromocao) {
+        this.porcentagemPromocao = porcentagemPromocao;
+    }
+
+    
     public String getNome() {
         return nome;
     }

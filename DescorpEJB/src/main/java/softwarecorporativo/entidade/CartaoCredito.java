@@ -42,11 +42,16 @@ import javax.validation.constraints.Size;
             @NamedQuery(
                     name = "CartaoCredito.PorData",
                     query = "SELECT c FROM CartaoCredito c WHERE c.dataExpiracao LIKE :data ORDER BY c.id"
-            )
+            ),
+            @NamedQuery(
+                    name = CartaoCredito.CartaoPorNumero,
+                    query = "SELECT cartao FROM CartaoCredito cartao WHERE cartao.numero = ?1"
+            ),
            
                         }
 )
 public class CartaoCredito extends Entidade implements Serializable {
+      public static final String CartaoPorNumero = "CartaoPorNumero";
 
     @Id
     @Column(name = "ID_CARTAO_CREDITO")

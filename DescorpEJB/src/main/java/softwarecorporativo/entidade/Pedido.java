@@ -39,7 +39,10 @@ import javax.validation.Valid;
         {
             @NamedQuery(
                     name = "Pedido.PorLog",
-                    query = "SELECT p FROM Pedido p WHERE p.log LIKE :log ORDER BY p.id")
+                    query = "SELECT p FROM Pedido p WHERE p.log LIKE :log ORDER BY p.id"),
+            @NamedQuery(
+                    name = Pedido.PedidoPorLog,
+                    query = "SELECT pedido FROM Pedido pedido WHERE pedido.log = ?1")
 
         }
 )

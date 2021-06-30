@@ -7,11 +7,14 @@
     <TB_TIPOPRODUTO  tipoproduto_nome="Garrafa"/>
     <TB_TIPOPRODUTO  tipoproduto_nome="Chaveiro" />
     
-    <TB_PRODUTO produto_nome="Caneca grande"    produto_descricao="Caneca do Thor"          produto_quantidade="400" produto_preco="23.5" imagem_url="Teste base64" produto_tipoprodutofk="4"/>
-    <TB_PRODUTO produto_nome="Camisa"           produto_descricao="Camisa do Thor"          produto_quantidade="80"  produto_preco="10.5" imagem_url="Teste base64" produto_tipoprodutofk="1"/>
-    <TB_PRODUTO produto_nome="Chaveiro pequena" produto_descricao="Chaveiro do Hulk"        produto_quantidade="90"  produto_preco="7.2"  imagem_url="Teste base64" produto_tipoprodutofk="6"/>
-    <TB_PRODUTO produto_nome="Guitarra Les Paul"      produto_descricao="Guitarra Les Paul Vermelha" produto_quantidade="100" produto_preco="625.23" imagem_url="Teste base64" produto_tipoprodutofk="2"/>
-    <TB_PRODUTO produto_nome="Guitarra"      produto_descricao="Guitarra Les Paul azul" produto_quantidade="10" produto_preco="6.1" imagem_url="google.com" produto_tipoprodutofk="2"/>
+    <TB_LOJA loja_nome ="Borracharia do Zezinho" loja_descricao ="Borracharia perto de casa" loja_cnpj="86.774.611/0001-02" loja_datainclusao="2015-06-17" loja_reputacao="PRATA"/>
+    <TB_LOJA loja_nome ="Sorveteria do Zezinho" loja_descricao ="Sorveteria perto de casa" loja_cnpj="85.774.611/0001-02" loja_datainclusao="2012-06-17" loja_reputacao="BRONZE" />
+    
+    <TB_PRODUTO produto_nome="Caneca grande"    produto_descricao="Caneca do Thor"          produto_quantidade="400" produto_preco="23.5" imagem_url="Teste base64" produto_tipoprodutofk="4" loja_fk="1" produto_promocao= "1" produto_porcentagem ="2.5"/>
+    <TB_PRODUTO produto_nome="Camisa"           produto_descricao="Camisa do Thor"          produto_quantidade="80"  produto_preco="10.5" imagem_url="Teste base64" produto_tipoprodutofk="1" loja_fk="1" produto_promocao= "0" produto_porcentagem ="2.5"/>
+    <TB_PRODUTO produto_nome="Chaveiro pequena" produto_descricao="Chaveiro do Hulk"        produto_quantidade="90"  produto_preco="7.2"  imagem_url="Teste base64" produto_tipoprodutofk="6" loja_fk="1" produto_promocao="1" produto_porcentagem ="2.5"/>
+    <TB_PRODUTO produto_nome="Guitarra Les Paul"      produto_descricao="Guitarra Les Paul Vermelha" produto_quantidade="100" produto_preco="625.23" imagem_url="Teste base64" produto_tipoprodutofk="2" loja_fk="1" produto_promocao="0" produto_porcentagem ="2.5"/>
+    <TB_PRODUTO produto_nome="Guitarra"      produto_descricao="Guitarra Les Paul azul" produto_quantidade="10" produto_preco="6.1" imagem_url="google.com" produto_tipoprodutofk="2" loja_fk="1" produto_promocao="1"/>
   
     <TB_TAMANHOPRODUTO tamanhoproduto_nome="Pequeno" tamanhoproduto_largura="23.5" tamanhoproduto_altura="22.1"
                        tamanhoproduto_comprimento="13.5" tamanhoproduto_tipo="Caneca" />
@@ -24,15 +27,21 @@
     <TB_TAMANHOPRODUTO tamanhoproduto_nome="Minúsculo" tamanhoproduto_largura="10" tamanhoproduto_altura="3.3"
                        tamanhoproduto_comprimento="1.2" tamanhoproduto_tipo="Boné" />
     
+    <TB_CARTAO_CREDITO txt_bandeira = "VISA" dt_expiracao = "2024-04-10" txt_numero = "4073020000000002"/>    
+    <TB_CARTAO_CREDITO txt_bandeira = "MASTERCARD" dt_expiracao = "2023-04-10" txt_numero = "5555666677778884"/>    
+    <TB_CARTAO_CREDITO txt_bandeira = "VISA" dt_expiracao = "2015-06-17" txt_numero = "4084770193100046"/>    
+    <TB_CARTAO_CREDITO txt_bandeira = "MAESTRO" dt_expiracao = "2022-01-17" txt_numero = "6759744303415452"/>    
+    <TB_CARTAO_CREDITO txt_bandeira = "HIPERCARD" dt_expiracao = "2023-04-10" txt_numero = "4073020012000002"/>   
     
     <TB_CORPRODUTO corproduto_nome="Azul"    corproduto_tipo="Caneca" />
-    <TB_CORPRODUTO corproduto_nome="Verde"   corproduto_tipo="Garrafa" />
+    <TB_CORPRODUTO corproduto_nome="Verde"   corproduto_tipo="Garrafa"  />
     <TB_CORPRODUTO corproduto_nome="Rosa"    corproduto_tipo="Chaveiro" />
     <TB_CORPRODUTO corproduto_nome="Amarelo" corproduto_tipo="Camisa"/>
-    <TB_CORPRODUTO corproduto_nome="Marrom"  corproduto_tipo="Boné" />
+    <TB_CORPRODUTO corproduto_nome="Marrom"  corproduto_tipo="Boné"  />
 
     <TB_PRODUTO_COR produto_id="1" corproduto_id="2"/>
     <TB_PRODUTO_COR produto_id="4" corproduto_id="4"/>
+    
    
       
     <TB_CARTAO_CREDITO txt_bandeira = "VISA" dt_expiracao = "2024-04-10" txt_numero = "4073020000000002"/>    
@@ -51,9 +60,9 @@
     <TB_USUARIOGERAL  usuario_cpf="831.009.930-47" usuario_nome="Flavio Antonio" usuario_email="flavio@gmail.com" usuario_tipo="C"/>
 
     
-    <TB_ADMUSUARIO usuario_id="2" adm_permissao="Concedida"/>
-    <TB_ADMUSUARIO usuario_id="3" adm_permissao="Não Concebida"/>
-    <TB_ADMUSUARIO usuario_id="6" adm_permissao="Concedida"/>
+    <TB_ADMUSUARIO usuario_id="2" adm_permissao="Concedida" loja_fk="1" adm_funcao="DONO"/>
+    <TB_ADMUSUARIO usuario_id="3" adm_permissao="Não Concebida" loja_fk="1" adm_funcao="DONO"/>
+    <TB_ADMUSUARIO usuario_id="6" adm_permissao="Concedida" loja_fk="1" adm_funcao="DONO"/>
     
     <TB_CLIENTEUSUARIO usuario_id="1" cliente_datanascimento="1991-04-10" cliente_celular="323232" cliente_fixo="3232324" id_cartao_credito = "3" endereco_nome="Avenida do IFPE" endereco_numero="500"
                         endereco_complemento="Instituto" endereco_bairro="Curado" endereco_cidade="Recife" endereco_cep="77.024-141"

@@ -12,7 +12,10 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
+import softwarecorporativo.entidade.ClienteUsuario;
 import softwarecorporativo.entidade.Pedido;
+import softwarecorporativo.entidade.StatusPedido;
+import softwarecorporativo.servico.ClienteServico;
 import softwarecorporativo.servico.PedidoServico;
 
 /**
@@ -20,7 +23,7 @@ import softwarecorporativo.servico.PedidoServico;
  * @author marcosbrasil98
  */
 public class PedidoCrudTest extends Teste {
-    
+    private ClienteServico clienteservico;
     private PedidoServico pedidoServico;
     
     @Before
@@ -34,12 +37,7 @@ public class PedidoCrudTest extends Teste {
     
     
     
-    @Test
-    public void existePedido() {
-        Pedido pedido = pedidoServico.criar();
-        pedido.setLog("nff979767");
-        assertTrue(pedidoServico.existe(pedido));
-    }
+    
     
     @Test
     public void getPedidoPorLog() {
@@ -57,11 +55,13 @@ public class PedidoCrudTest extends Teste {
     
     @Test
     public void persistir() {   
-        
+        ClienteUsuario cliente =  clienteservico.consultarPorId(new Long(4));
         Pedido pedido = pedidoServico.criar();
         pedido.setId(7l);
         pedido.setLog("232432knsfksnfs");
         pedido.setQuantidade(340);
+        pedido.setUsuario(cliente);
+        pedido.setStatus(StatusPedido.ENTREGUE);
         pedidoServico.persistirPedido(pedido);
         assertNotNull(pedido.getId());
         

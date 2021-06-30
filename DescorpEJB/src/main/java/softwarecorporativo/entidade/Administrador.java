@@ -11,10 +11,17 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -58,6 +65,34 @@ public class Administrador extends UsuarioGeral implements Serializable {
     @Column(name = "ADM_PERMISSAO")
     private String permissao;
     
+    @Valid
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "LOJA_FK", referencedColumnName = "LOJA_ID", nullable = false)
+    private Loja loja;
+
+    
+    @Column(name = "ADM_FUNCAO", nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+    private FuncaoAdministrador funcao;
+
+    public Loja getLoja() {
+        return loja;
+    }
+
+    public void setLoja(Loja loja) {
+        this.loja = loja;
+    }
+
+    public FuncaoAdministrador getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(FuncaoAdministrador funcao) {
+        this.funcao = funcao;
+    }
+    
+    
+    
     public String getPermissao() {
         return permissao;
     }
@@ -65,8 +100,9 @@ public class Administrador extends UsuarioGeral implements Serializable {
     public void setPermissao(String permissao) {
         this.permissao = permissao;
     }
-
-
+    
+    
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("softwarecorporativo.jpa.Administrador[");
