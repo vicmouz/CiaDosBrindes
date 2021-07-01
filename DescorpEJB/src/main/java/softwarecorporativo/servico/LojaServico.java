@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -56,5 +57,9 @@ public class LojaServico extends Servico<Loja> {
     @TransactionAttribute(SUPPORTS)
     public Loja consultarPorNome( String nome) {
         return super.consultarEntidade(new Object[] {nome}, Loja.LojaPorNome);
+    }
+    @TransactionAttribute(SUPPORTS)
+    public List<Loja> getLojas() {
+        return super.getEntidades(Loja.lojas);
     }
 }

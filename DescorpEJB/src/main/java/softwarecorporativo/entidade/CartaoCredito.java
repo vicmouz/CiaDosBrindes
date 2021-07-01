@@ -47,12 +47,16 @@ import javax.validation.constraints.Size;
                     name = CartaoCredito.CartaoPorNumero,
                     query = "SELECT cartao FROM CartaoCredito cartao WHERE cartao.numero = ?1"
             ),
+            @NamedQuery(
+                    name = CartaoCredito.cartoes,
+                    query = "SELECT cartoes FROM CartaoCredito cartoes"
+            )
            
                         }
 )
 public class CartaoCredito extends Entidade implements Serializable {
       public static final String CartaoPorNumero = "CartaoPorNumero";
-
+      public static final String cartoes = "cartoes";
     @Id
     @Column(name = "ID_CARTAO_CREDITO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -42,14 +42,17 @@ import javax.validation.Valid;
                     query = "SELECT p FROM Pedido p WHERE p.log LIKE :log ORDER BY p.id"),
             @NamedQuery(
                     name = Pedido.PedidoPorLog,
-                    query = "SELECT pedido FROM Pedido pedido WHERE pedido.log = ?1")
+                    query = "SELECT pedido FROM Pedido pedido WHERE pedido.log = ?1"),
+             @NamedQuery(
+                    name = Pedido.pedidos,
+                    query = "SELECT p FROM Pedido p ")
 
         }
 )
 public class Pedido extends Entidade implements Serializable {
 
     public static final String PedidoPorLog = "PedidoPorLog";
-
+    public static final String pedidos = "pedidos";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PEDIDO_ID", nullable = false)

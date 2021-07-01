@@ -57,12 +57,16 @@ import org.hibernate.validator.constraints.NotBlank;
             @NamedQuery(
                     name = "ClienteUsuario.PorEmail",
                     query = "SELECT cu FROM UsuarioGeral cu WHERE cu.email LIKE :email ORDER BY cu.id"
+            ),
+            @NamedQuery(
+                    name = ClienteUsuario.CLIENTES,
+                    query = "SELECT a FROM UsuarioGeral a"
             )
         }
 )
 public class ClienteUsuario extends UsuarioGeral implements Serializable {
 public static final String Clienteporcpf = "Clienteporcpf";
-
+public static final String CLIENTES = "CLIENTES";
 
 @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
 @JoinColumn(name = "ID_CARTAO_CREDITO", referencedColumnName = "ID_CARTAO_CREDITO")

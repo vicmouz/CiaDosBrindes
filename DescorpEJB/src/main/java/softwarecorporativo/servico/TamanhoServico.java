@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -55,5 +56,9 @@ public class TamanhoServico extends Servico<TamanhoProduto>{
     @TransactionAttribute(SUPPORTS)
     public TamanhoProduto consultarPorTipo( String tipo) {
         return super.consultarEntidade(new Object[] {tipo}, TamanhoProduto.TamanhoProdutoPorTipo);
+    }
+    @TransactionAttribute(SUPPORTS)
+    public List<TamanhoProduto> getTamanhos() {
+        return super.getEntidades(TamanhoProduto.tamanhos);
     }
 }

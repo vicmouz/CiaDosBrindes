@@ -54,13 +54,17 @@ import org.hibernate.validator.constraints.NotBlank;
             @NamedQuery(
                     name = Administrador.AdministradorPorCPF,
                     query = "SELECT a FROM UsuarioGeral a WHERE a.cpf = ?1"
+            ),
+            @NamedQuery(
+                    name = Administrador.ADMINISTRADORES,
+                    query = "SELECT a FROM UsuarioGeral a"
             )
         }
 )
 
 public class Administrador extends UsuarioGeral implements Serializable {
     public static final String AdministradorPorCPF = "AdministradorPorCPF";
-
+    public static final String ADMINISTRADORES = "ADMINISTRADORES";  
     @NotBlank(message = "Administrador precisa da permissão")
     @Column(name = "ADM_PERMISSAO")
     private String permissao;

@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -56,5 +57,8 @@ public class CartaoCreditoServico extends Servico<CartaoCredito> {
     public CartaoCredito consultarPorNumero( String numero) {
         return super.consultarEntidade(new Object[] {numero}, CartaoCredito.CartaoPorNumero);
     }
-    
+   @TransactionAttribute(SUPPORTS)
+    public List<CartaoCredito> getCartoes() {
+        return super.getEntidades(CartaoCredito.cartoes);
+    } 
 }

@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -57,4 +58,8 @@ public class ClienteServico extends Servico<ClienteUsuario> {
     public ClienteUsuario consultarPorCPF(@CPF String cpf) {
         return super.consultarEntidade(new Object[] {cpf}, ClienteUsuario.Clienteporcpf);
     }
+    
+    @TransactionAttribute(SUPPORTS)
+    public List<ClienteUsuario> getClientes() {
+        return getEntidades(ClienteUsuario.CLIENTES);}
 }

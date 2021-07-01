@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -55,5 +56,9 @@ public class CorProdutoServico extends Servico<CorProduto>{
     @TransactionAttribute(SUPPORTS)
     public CorProduto consultarPorTipo( String tipo) {
         return super.consultarEntidade(new Object[] {tipo}, CorProduto.CorPorTipo);
+    }
+    @TransactionAttribute(SUPPORTS)
+    public List<CorProduto> getCores() {
+        return super.getEntidades(CorProduto.cores);
     }
 }

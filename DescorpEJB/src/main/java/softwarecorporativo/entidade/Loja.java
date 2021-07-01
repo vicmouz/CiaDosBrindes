@@ -39,13 +39,17 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
             @NamedQuery(
                     name = Loja.LojaPorNome,
-                    query = "SELECT loja FROM Loja loja WHERE loja.nome = ?1")
+                    query = "SELECT loja FROM Loja loja WHERE loja.nome = ?1"),
+           @NamedQuery(
+                    name = Loja.lojas,
+                    query = "SELECT loja FROM Loja loja")
+                        
         }
 )
 public class Loja extends Entidade implements Serializable{
     
     public static final String LojaPorNome = "LojaPorNome";
-    
+    public static final String lojas = "lojas";   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "LOJA_ID")

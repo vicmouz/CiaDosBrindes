@@ -47,7 +47,11 @@ import javax.validation.Valid;
             ),
             @NamedQuery(
                     name = Produto.ProdutoPorID,
-                    query = "SELECT produto FROM Produto produto WHERE produto.id = ?1")
+                    query = "SELECT produto FROM Produto produto WHERE produto.id = ?1"),
+            @NamedQuery(
+                    name = Produto.produtos,
+                    query = "SELECT p FROM Produto p "
+            )
         }
 )
 @NamedNativeQueries(
@@ -66,7 +70,7 @@ import javax.validation.Valid;
 public class Produto extends Entidade implements Serializable {
 
     public static final String ProdutoPorID = "ProdutoPorID";
-
+    public static final String produtos = "produtos";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PRODUTO_ID")

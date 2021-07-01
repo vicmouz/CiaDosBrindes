@@ -5,6 +5,7 @@
  */
 package softwarecorporativo.servico;
 
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -55,5 +56,9 @@ public class PedidoServico extends Servico<Pedido> {
     @TransactionAttribute(SUPPORTS)
     public Pedido consultarPorLog( String log) {
         return super.consultarEntidade(new Object[] {log}, Pedido.PedidoPorLog);
+    }
+    @TransactionAttribute(SUPPORTS)
+    public List<Pedido> getPedidos() {
+        return super.getEntidades(Pedido.pedidos);
     }
 }
