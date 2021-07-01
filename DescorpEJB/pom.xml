@@ -14,8 +14,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <glassfish.embedded-static-shell.jar>/home/victor/Documentos/glassfish-4.1.1/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
-        <!--<glassfish.embedded-static-shell.jar>C:/Users/T-Gamer/GlassFish_Server/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>-->
+        <!--<glassfish.embedded-static-shell.jar>/home/victor/Documentos/glassfish-4.1.1/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>-->
+        <glassfish.embedded-static-shell.jar>C:/Users/T-Gamer/GlassFish_Server/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
 
         <!--<glassfish.embedded-static-shell.jar>/home/T-Gamer/GlassFish_Server/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>-->
     </properties>    
@@ -114,6 +114,7 @@
             <version>7.0</version>
             <type>jar</type>
         </dependency>
+       
     </dependencies>
 
     <build>

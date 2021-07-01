@@ -44,7 +44,10 @@ import javax.validation.Valid;
             @NamedQuery(
                     name = "Produto.PorNome",
                     query = "SELECT p FROM Produto p WHERE p.nome LIKE :nome ORDER BY p.quantidade"
-            )
+            ),
+            @NamedQuery(
+                    name = Produto.ProdutoPorID,
+                    query = "SELECT produto FROM Produto produto WHERE produto.id = ?1")
         }
 )
 @NamedNativeQueries(

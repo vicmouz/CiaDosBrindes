@@ -16,6 +16,7 @@ import org.junit.Before;
 import org.junit.Test;
 import softwarecorporativo.entidade.CartaoCredito;
 import softwarecorporativo.entidade.ClienteUsuario;
+import softwarecorporativo.entidade.Loja;
 import softwarecorporativo.servico.CartaoCreditoServico;
 
 
@@ -49,8 +50,10 @@ public class CartaoCreditoCrudTest extends Teste{
     }
     
      @Test
-    public void getCartaoPorId() {
-        assertNotNull(cartaoservico.consultarPorId(new Long(1)));
+    public void getCartaoPorNumero() {
+        CartaoCredito cartaoCredito = cartaoservico.consultarPorNumero("6759744303415412");
+        assertNotNull(cartaoCredito);
+        assertNotNull("MAESTRO",cartaoCredito.getBandeira());
     }
    
     @Test

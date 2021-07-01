@@ -30,7 +30,7 @@
     <TB_CARTAO_CREDITO txt_bandeira = "VISA" dt_expiracao = "2024-04-10" txt_numero = "4073020000000002"/>    
     <TB_CARTAO_CREDITO txt_bandeira = "MASTERCARD" dt_expiracao = "2023-04-10" txt_numero = "5555666677778884"/>    
     <TB_CARTAO_CREDITO txt_bandeira = "VISA" dt_expiracao = "2015-06-17" txt_numero = "4084770193100046"/>    
-    <TB_CARTAO_CREDITO txt_bandeira = "MAESTRO" dt_expiracao = "2022-01-17" txt_numero = "6759744303415452"/>    
+    <TB_CARTAO_CREDITO txt_bandeira = "MAESTRO" dt_expiracao = "2022-01-17" txt_numero = "6759744303415412"/>    
     <TB_CARTAO_CREDITO txt_bandeira = "HIPERCARD" dt_expiracao = "2023-04-10" txt_numero = "4073020012000002"/>   
     
     <TB_CORPRODUTO corproduto_nome="Azul"    corproduto_tipo="Caneca" />

@@ -53,7 +53,7 @@ public class PedidoCrudTest extends Teste {
         assertNotNull(pedidoServico.consultarPorId(new Long(2)));
     }
     
-    @Test
+    /*@Test
     public void persistir() {   
         ClienteUsuario cliente =  clienteservico.consultarPorId(new Long(4));
         Pedido pedido = pedidoServico.criar();
@@ -65,7 +65,7 @@ public class PedidoCrudTest extends Teste {
         pedidoServico.persistirPedido(pedido);
         assertNotNull(pedido.getId());
         
-    }
+    }*/
     
     @Test
     public void atualizar() {
