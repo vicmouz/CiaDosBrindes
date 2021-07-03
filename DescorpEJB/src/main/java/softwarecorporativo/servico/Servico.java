@@ -96,7 +96,7 @@ public abstract class Servico <T extends Entidade> {
     }
 
     @TransactionAttribute(SUPPORTS)
-     protected List<T> getEntidades(String nomeQuery) {
+    protected List<T> getEntidades(String nomeQuery) {
         TypedQuery<T> query = entityManager.createNamedQuery(nomeQuery, classe);
         return query.getResultList();
     }
