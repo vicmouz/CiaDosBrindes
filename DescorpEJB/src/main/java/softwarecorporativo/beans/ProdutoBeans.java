@@ -20,6 +20,32 @@ import java.util.List;
 public class ProdutoBeans extends Beans<Produto> implements Serializable{
 
     private ProdutoServico produtoServico;
+    private Produto cadastroProduto;
+    private Produto selectionadoProduto;
+
+    public ProdutoServico getProdutoServico() {
+        return produtoServico;
+    }
+
+    public void setProdutoServico(ProdutoServico produtoServico) {
+        this.produtoServico = produtoServico;
+    }
+
+    public Produto getSelectionadoProduto() {
+        return selectionadoProduto;
+    }
+
+    public void setSelectionadoProduto(Produto selectionadoProduto) {
+        this.selectionadoProduto = selectionadoProduto;
+    }
+
+    public Produto getCadastroProduto() {
+        return cadastroProduto;
+    }
+
+    public void setCadastroProduto(Produto cadastroProduto) {
+        this.cadastroProduto = cadastroProduto;
+    }
     private List<Produto> produtos;
     @Override
     protected boolean salvar(Produto entidade) {
@@ -41,9 +67,12 @@ public class ProdutoBeans extends Beans<Produto> implements Serializable{
 
     @Override
     protected void iniciarCampos() {
-    produtoServico.criar();
+    this.cadastroProduto = new Produto();
     }
     public List<Produto> getProdutos(){
         return produtoServico.getProdutos();
+    }
+    public void setProduto(Produto produto) {
+        this.produtoServico.criar();
     }
 }
