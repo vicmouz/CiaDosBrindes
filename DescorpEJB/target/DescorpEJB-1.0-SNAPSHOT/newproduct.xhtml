@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de produto</title>
+    </h:head>
+    <h:body>
+        <ui:include src="menu.xhtml"/>
+        Você está prestes a cadastrar um novo produto
+        <h:form id="formCadastroCliente" enctype="multipart/form-data">
+            <p:fieldset legend="Cadastro de Produto">
+                <p:panelGrid columns="3">
+                    <h:outputText value="Nome:"></h:outputText>
+                    <p:inputText value="#{ProdutoBean.cadastroProduto.nome}" id="txtNome" required="true" requiredMessage="O nome é obrigatório"></p:inputText>
+                    <p:message id="msgNome" for="txtNome"/>
+
+                    <h:outputText value="Descrição:"></h:outputText>
+                    <p:inputTextarea value="#{ProdutoBean.cadastroProduto.descricao}" id="txtDescricao" required="true" requiredMessage="A descrição é obrigatória"></p:inputTextarea>
+                    <p:message id="msgDesc" for="txtDescricao"/>
+
+                    <h:outputText value="Quantidade:"></h:outputText>
+                    <p:inputText value="#{ProdutoBean.cadastroProduto.quantidade}" id="txtQtd" required="true" requiredMessage="A quantidade é obrigatória"></p:inputText>
+                    <p:message id="msgQtd" for="txtQtd"/>
+
+                    <h:outputText value="Preço:"></h:outputText>
+                    <p:inputText value="#{ProdutoBean.cadastroProduto.preco}" id="txtPreco" required="true" requiredMessage="O preço é obrigatório"></p:inputText>
+                    <p:message id="msgPreco" for="txtPreco"/>
+
+                    <h:outputText value="Promoção:"></h:outputText>
+                    <p:selectBooleanCheckbox value="#{ProdutoBean.cadastroProduto.promocao}" id="txtPromo" ></p:selectBooleanCheckbox>
+                    <p:message id="msgPromo" for="txtPromo"/>
+
+                    <h:outputText value="Porcentagem Promoção:"></h:outputText>
+                    <p:inputText value="#{ProdutoBean.cadastroProduto.porcentagemPromocao}" id="txtPercent"></p:inputText>
+                    <p:message id="msgPercent" for="txtPercent"/>
+
+                    <h:outputText value="Imagem:"></h:outputText>
+                    <h:inputFile value="#{ProdutoBean.cadastroProduto.imgProduto}" id="txtImg"></h:inputFile>
+                    <p:message id="msgImg" for="txtImg"/>
+
+                    <h:outputText value="Tipo:"></h:outputText>
+                    <p:inputText value="input tipo" id="txtTipo"></p:inputText>
+                    <p:message id="msgTipo" for="txtTipo"/>
+
+                    <h:outputText value="Loja:"></h:outputText>
+                    <p:inputText value="input loja" id="txtLoja"></p:inputText>
+                    <p:message id="msgLoja" for="txtLoja"/>
+                </p:panelGrid>
+                <p:commandButton value="Registrar" oncomplete="PF('widDialCadProduto').show()"/>
+            </p:fieldset>
+
+            <p:dialog id="dialCadProduto" visible="false" modal="true"
+                      resizable="false" 
+                      widgetVar="widDialCadProduto">
+                <f:facet name="header">
+                    Atenção!!!
+                </f:facet>
+
+
+                <h:outputText value="Você realmente deseja registrar este produto?"/><br/>
+                <p:separator/>
+                <p:commandButton value="sim" action="#{ProdutoBean.salvar()}"
+                                 oncomplete="PF('widDialCadProduto').hide()"
+                                 update="@form"/>
+                <p:commandButton value="não" oncomplete="PF('widDialCadProduto').hide()"/>
+
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>
+
